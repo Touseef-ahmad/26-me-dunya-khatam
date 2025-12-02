@@ -7,7 +7,6 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto">
         {/* Main footer content */}
         <div className="flex flex-col items-center gap-4 md:gap-6 animate-fade-in" style={{ animationDelay: "0.5s" }}>
-          {/* Credit text */}
           <p className="text-center text-sm md:text-base text-gray-300">
             Made with <span className="text-red-500">💀 fear</span> by{" "}
             <span className="font-semibold text-cyan-300">Touseef Ahmad</span>
@@ -16,7 +15,7 @@ export default function Footer() {
           {/* Social links */}
           <div className="flex items-center gap-6 md:gap-8">
             <Link
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/touseef-ahmad-cs/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 flex items-center gap-2 group"
@@ -27,7 +26,7 @@ export default function Footer() {
             </Link>
 
             <Link
-              href="https://github.com"
+              href="https://github.com/Touseef-ahmad"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-300 hover:text-cyan-400 transition-colors duration-300 flex items-center gap-2 group"
@@ -38,7 +37,7 @@ export default function Footer() {
             </Link>
 
             <Link
-              href="https://github.com"
+              href="https://github.com/Touseef-ahmad/26-me-dunya-khatam"
               target="_blank"
               rel="noopener noreferrer"
               className="text-cyan-400 hover:text-cyan-300 transition-colors duration-300 text-sm md:text-base font-medium group"

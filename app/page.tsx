@@ -17,11 +17,10 @@ export default function Home() {
 
   return (
     <main className="relative w-full h-screen overflow-hidden">
-      {/* Background image with dark overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url(/placeholder.svg?height=1080&width=1920&query=apocalyptic meme end of world)",
+          backgroundImage: "url(/background.png)",
         }}
       />
 
@@ -31,12 +30,11 @@ export default function Home() {
       <div className="relative z-10 w-full h-full flex flex-col items-center justify-center px-4">
         {/* Fade-in animation wrapper */}
         <div className="animate-fade-in w-full flex flex-col items-center justify-center flex-1">
-          {/* Main heading */}
           <h1
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white text-center mb-8 md:mb-16 tracking-wider animate-fade-in"
-            style={{ animationDelay: "0.2s" }}
+            style={{ animationDelay: "0.2s", fontFamily: "var(--font-heading)" }}
           >
-            World End Count
+            World End Counter
           </h1>
 
           {/* Countdown timer */}
