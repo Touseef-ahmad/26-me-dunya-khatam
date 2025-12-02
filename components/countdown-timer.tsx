@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
 interface TimeLeft {
-  days: number
-  hours: number
-  minutes: number
-  seconds: number
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
 }
 
 export default function CountdownTimer() {
@@ -15,17 +15,17 @@ export default function CountdownTimer() {
     hours: 0,
     minutes: 0,
     seconds: 0,
-  })
+  });
 
-  const [isMounted, setIsMounted] = useState(false)
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true)
+    setIsMounted(true);
 
     const calculateTimeLeft = () => {
-      const targetDate = new Date(2026, 0, 1).getTime()
-      const now = new Date().getTime()
-      const difference = targetDate - now
+      const targetDate = new Date(2026, 0, 1).getTime();
+      const now = new Date().getTime();
+      const difference = targetDate - now;
 
       if (difference > 0) {
         setTimeLeft({
@@ -33,24 +33,30 @@ export default function CountdownTimer() {
           hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
           minutes: Math.floor((difference / 1000 / 60) % 60),
           seconds: Math.floor((difference / 1000) % 60),
-        })
+        });
       } else {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 })
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
       }
-    }
+    };
 
-    calculateTimeLeft()
-    const timer = setInterval(calculateTimeLeft, 1000)
+    calculateTimeLeft();
+    const timer = setInterval(calculateTimeLeft, 1000);
 
-    return () => clearInterval(timer)
-  }, [])
+    return () => clearInterval(timer);
+  }, []);
 
   if (!isMounted) {
-    return null
+    return null;
   }
 
-  const SegmentDisplay = ({ value, label }: { value: number; label: string }) => (
-    <div className="flex flex-col items-center gap-2 md:gap-4 animate-fade-in" style={{ animationDelay: "0.4s" }}>
+  const SegmentDisplay = ({
+    value,
+    label,
+  }: {
+    value: number;
+    label: string;
+  }) => (
+    <div className="flex flex-col items-center gap-2 md:gap-4">
       <div className="font-mono text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-cyan-400 bg-black bg-opacity-40 px-4 md:px-6 py-2 md:py-4 rounded-lg border-2 border-cyan-400 shadow-lg shadow-cyan-400 tracking-wider">
         {String(value).padStart(2, "0")}
       </div>
@@ -58,10 +64,10 @@ export default function CountdownTimer() {
         {label}
       </span>
     </div>
-  )
+  );
 
   return (
-    <div className="flex flex-col items-center gap-8 md:gap-12 animate-fade-in" style={{ animationDelay: "0.3s" }}>
+    <div className="flex flex-col items-center gap-8 md:gap-12">
       {/* Countdown display */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
         <SegmentDisplay value={timeLeft.days} label="Days" />
@@ -72,5 +78,5 @@ export default function CountdownTimer() {
 
       <div className="w-full max-w-md md:max-w-2xl h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent rounded-full shadow-lg shadow-cyan-400" />
     </div>
-  )
+  );
 }

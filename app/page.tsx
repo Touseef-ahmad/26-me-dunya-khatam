@@ -1,26 +1,34 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import CountdownTimer from "@/components/countdown-timer"
-import Footer from "@/components/footer"
+import { useEffect, useState } from "react";
+import CountdownTimer from "@/components/countdown-timer";
+import Footer from "@/components/footer";
 
 export default function Home() {
-  const [mounted, setMounted] = useState(false)
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   if (!mounted) {
-    return null
+    return null;
   }
 
   return (
     <main className="relative w-full h-screen overflow-hidden">
+      {/* Desktop background */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-right hidden md:block"
         style={{
           backgroundImage: "url(/background.png)",
+        }}
+      />
+      {/* Mobile background */}
+      <div
+        className="absolute inset-0 bg-cover bg-center md:hidden"
+        style={{
+          backgroundImage: "url(/background2.png)",
         }}
       />
 
@@ -32,7 +40,10 @@ export default function Home() {
         <div className="animate-fade-in w-full flex flex-col items-center justify-center flex-1">
           <h1
             className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white text-center mb-8 md:mb-16 tracking-wider animate-fade-in"
-            style={{ animationDelay: "0.2s", fontFamily: "var(--font-heading)" }}
+            style={{
+              animationDelay: "0.2s",
+              fontFamily: "var(--font-heading)",
+            }}
           >
             World End Counter
           </h1>
@@ -45,5 +56,5 @@ export default function Home() {
         <Footer />
       </div>
     </main>
-  )
+  );
 }
